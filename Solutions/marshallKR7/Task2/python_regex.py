@@ -10,6 +10,6 @@ Month = Match[1]
 Year = re.search(Year, Input_Date)
 Year = Year.group()
 #Combining month,date and year in Output_Date
-Output_Date = Month+'/'+Date+'/'+Year
+Output_Date = f'{Month}/{Date}/{Year}'
 #printing final date in MM/DD/YY format
 print(Output_Date)

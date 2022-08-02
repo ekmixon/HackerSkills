@@ -13,5 +13,5 @@ month = match[1]
 year_match = re.search(year_format, inp_date)
 year = year_match.group()
 
-out_date = month + '/' + date + '/' + year
+out_date = f'{month}/{date}/{year}'
 print(out_date)

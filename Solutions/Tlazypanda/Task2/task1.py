@@ -6,23 +6,22 @@ jd = raw_input()
 
 print("Enter the Location")
 loc = raw_input()
-link="https://jobs.github.com/positions.json?description="+jd+"&location="+loc
+link = (
+    f"https://jobs.github.com/positions.json?description={jd}&location={loc}"
+)
+
 jobobj = requests.get(link)
 
-object1 = json.loads(jobobj.text)
-
-if (object1):
-    j=1
-    for i in object1:
-        print("Job " + str(j) + " ==>\n")
+if object1 := json.loads(jobobj.text):
+    for j, i in enumerate(object1, start=1):
+        print(f"Job {str(j)}" + " ==>\n")
         print("Title: " + i['title'] + "\n")
         print("Date added: " + i['created_at'] + "\n")
         print("Location: " + i['location'] + "\n")
         print("Type: " + i["type"] + "\n")
         s1 = BeautifulSoup(i['description'], "lxml")
-        print("Description: " + soup1.getText() + "\n")
+        print(f"Description: {soup1.getText()}" + "\n")
         print("Company: " + i["company"] + "\n")
         print("Company Website: " + i["company_url"] + "\n")
-        j+=1
 else:
     print("No Jobs Found")

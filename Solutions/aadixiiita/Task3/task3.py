@@ -9,11 +9,11 @@ html_page = r.text
 
 
 soup = BeautifulSoup(html_page,"lxml")
-links = []
+links = [
+    link.get('href')
+    for link in soup.findAll('a', attrs={'href': re.compile("^http://")})
+]
 
- 
-for link in soup.findAll('a', attrs={'href': re.compile("^http://")}):
-    links.append(link.get('href'))
 
 
 solved = soup.find_all('div', class_='title')

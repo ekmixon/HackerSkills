@@ -4,11 +4,9 @@ from bs4 import BeautifulSoup
 description = input("Enter Description: ")
 location = input("Enter Location: ")
 loc = list(location.split(" "))
-location = ""
-for loc_element in loc:
-    location += "+" + loc_element
+location = "".join(f"+{loc_element}" for loc_element in loc)
+url = f"https://jobs.github.com/positions?description={description}&location={location}"
 
-url = "https://jobs.github.com/positions?description=" + description + "&location=" + location
 resp = requests.get(url)
 
 html = resp.text

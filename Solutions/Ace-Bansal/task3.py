@@ -10,7 +10,7 @@ articleLink=pageHTML.find_all('a',attrs={'title': "Download PDF"});
 length=len(articleTitle);
 for i in range(length):
     print(str(i+1)+")\n");
-    print("ARTICLE TITLE:"+articleTitle[i].text);
+    print(f"ARTICLE TITLE:{articleTitle[i].text}");
     print("ARTICLE LINK:"+articleLink[i].get('href'));
     print("\n");
     print("=============================================================================\n");
