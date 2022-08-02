@@ -5,4 +5,4 @@ regex = re.compile(r'(\d\d)-(\d\d)-(\d\d\d\d)')
 rGroups = regex.search(date)
 
 print("Converted the date in MM/DD/YYYY format->")
-print(rGroups.group(2)+"/"+rGroups.group(1)+"/"+rGroups.group(3))
+print(rGroups[2] + "/" + rGroups[1] + "/" + rGroups[3])

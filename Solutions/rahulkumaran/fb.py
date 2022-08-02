@@ -15,11 +15,7 @@ def authenticate(browser,url,email,pwd):
 	return BeautifulSoup(response,'html.parser')
 
 @click.command()
-
 @click.option('--login',is_flag=True,help='Allows you to login to Facebook')
-
-
-
 def cli(login):
 	browser = mechanize.Browser()
 	browser.set_handle_robots(False)	#Allows everything to be written
@@ -30,12 +26,12 @@ def cli(login):
 	try:
 		url = 'http://www.facebook.com/login.php'
 		soup = authenticate(browser,url,email,pwd)	#Parses the html and stores in 'soup'
-		if(login):			#To find number of new friend request
+		if login:#To find number of new friend request
 			fr_num_box = soup.find('span',attrs={'id':'requestsCountValue'})		#Finds span tags with the given ID
-			if(fr_num_box != None):
-				click.echo("\n\nLOGIN SUCCESSFUL!\n" )
-			else:
+			if fr_num_box is None:
 				click.echo("\n\nLOGIN UNSUCCESSFUL!\nEither the password or email id you've entered is wrong!\nPlease try again!")
+			else:
+				click.echo("\n\nLOGIN SUCCESSFUL!\n" )
 	except AttributeError:
 		click.echo("Either the password or email id you've entered is wrong")
 

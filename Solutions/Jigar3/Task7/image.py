@@ -24,5 +24,5 @@ with open("names.txt") as f:
         font = ImageFont.truetype(fontName, fontSize)
         draw.text((x, y), text, font=font)
 
-        im.save(text + '.jpg')
-        print("Finished with " + text + ".jpg")
+        im.save(f'{text}.jpg')
+        print(f"Finished with {text}.jpg")

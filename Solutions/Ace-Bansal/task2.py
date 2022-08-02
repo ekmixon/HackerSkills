@@ -5,4 +5,4 @@ rObj= re.compile(r'(\d\d)-(\d\d)-(\d\d\d\d)');
 ddmmyyyy = rObj.search(userDate);
 
 print("The date in new format is:");
-print(ddmmyyyy.group(2)+"-"+ddmmyyyy.group(1)+"-"+ddmmyyyy.group(3));
+print(ddmmyyyy[2] + "-" + ddmmyyyy[1] + "-" + ddmmyyyy[3]);

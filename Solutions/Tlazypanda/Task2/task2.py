@@ -7,5 +7,5 @@ str = reg.group()
 month=str[3:5]
 day=str[:2]
 year=str[6:]
-ans = month+'-'+day+'-'+year
+ans = f'{month}-{day}-{year}'
 print(ans)

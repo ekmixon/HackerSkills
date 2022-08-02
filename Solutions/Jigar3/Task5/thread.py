@@ -1,10 +1,10 @@
 import threading,math
 
 def factorial(n):
-    print("Factorial of " +  str(n) + " is: " + str(math.factorial(n)) )
+    print(f"Factorial of {str(n)} is: {str(math.factorial(n))}")
 
 def square(n):
-    print("Exponent of " + str(n) + " is: " + str(n**n))
+    print(f"Exponent of {str(n)} is: {str(n**n)}")
 
 
 n = int(raw_input())
